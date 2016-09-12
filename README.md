@@ -7,3 +7,6 @@
 #running server
 node server.js for locally 
 OR push the code to master branch and open http://brasiltiles.herokuapp.com/#/ to see the changes
+
+#modify
+edit code at angular/controllers/homeController.js
