@@ -74,5 +74,39 @@ app.controller('homeController',
         });
     }
 
+
+    /***************Open street map code********************/
+    var isOpenStreetTileMap=false;
+    $scope.toggleOpenStreetMap=function(){
+        if(!isOpenStreetTileMap){
+            $scope.map.overlayMapTypes.push(openStreetSLPLayer());
+            isOpenStreetTileMap=true; 
+        }else{
+            $scope.map.overlayMapTypes.setAt( 0, null);
+            $scope.map.overlayMapTypes.pop();
+            isOpenStreetTileMap=false; 
+        }
+    };
+
+    function openStreetSLPLayer(){
+        return new google.maps.ImageMapType({
+            getTileUrl: function(coord, zoom) {
+                // "Wrap" x (logitude) at 180th meridian properly
+                // NB: Don't touch coord.x because coord param is by reference, and changing its x property breakes something in Google's lib 
+                var tilesPerGlobe = 1 << zoom;
+                var x = coord.x % tilesPerGlobe;
+                if (x < 0) {
+                    x = tilesPerGlobe+x;
+                }
+                // Wrap y (latitude) in a like manner if you want to enable vertical infinite scroll
+
+                return "http://tile.openstreetmap.org/" + zoom + "/" + x + "/" + coord.y + ".png";
+            },
+            tileSize: new google.maps.Size(256, 256),
+            name: "OpenStreetMap",
+            maxZoom: 18
+        });
+    }
+
 }]);
 
