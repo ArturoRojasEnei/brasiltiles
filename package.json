@@ -1,0 +1,23 @@
+{
+  "name": "BRASILMAPS",
+  "version": "1.0.0",
+  "description": "A bRASIL maps",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "maps",
+    "events",
+    "caleder",
+    "schedular"
+  ],
+  "author": "Ravi Teja Bathula",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4", 
+    "q": "^1.4.1"
+  }
+}
