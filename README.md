@@ -6,4 +6,4 @@
 
 #running server
 node server.js for locally 
-OR push the code to master branch and open http://brasiltiles.herokuapp.com/#/ to see the updated code
+OR push the code to master branch and open http://brasiltiles.herokuapp.com/#/ to see the changes
